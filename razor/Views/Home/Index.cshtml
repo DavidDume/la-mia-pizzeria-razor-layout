@@ -2,6 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    string nome = "David";
+    string cognome = "Dume";
+
+    int sommaN(int n)
+    {
+        int somma = 0;
+        for(int i = 0; i <= n; i++)
+        {
+            somma += i;
+        }
+        return somma;
+    }
+}
+
 <div class="text-center">
-    
+    <h2>@nome @cognome</h2>
+
+    <span>@sommaN(5)</span>
 </div>
