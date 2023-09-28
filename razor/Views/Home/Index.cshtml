@@ -31,7 +31,53 @@
         }
         return somma;
     }
-    
+
+    List<int> randomNum()
+    {
+        List<int> lista = new List<int>();
+        Random rnd = new Random();
+
+        for(int i = 0; i < 20; i++)
+        {
+            lista.Add(rnd.Next(1, 90));
+        }
+        List<int> lista2 = new List<int>();
+
+        foreach(int n in lista)
+        {
+            if(n >= 20 && n <= 70)
+            {
+                lista2.Add(n);
+            }
+        }
+
+        return lista2;
+    }
+
+
+    static string GetDayOfWeek(DayOfWeek day)
+    {
+        switch (day)
+        {
+            case DayOfWeek.Sunday:
+                return "Domenica";
+            case DayOfWeek.Monday:
+                return "Lunedì";
+            case DayOfWeek.Tuesday:
+                return "Martedì";
+            case DayOfWeek.Wednesday:
+                return "Mercoledì";
+            case DayOfWeek.Thursday:
+                return "Giovedì";
+            case DayOfWeek.Friday:
+                return "Venerdì";
+            case DayOfWeek.Saturday:
+                return "Sabato";
+            default:
+                return "";
+        }
+    }
+
 }
 
 <div class="text-center">
@@ -40,4 +86,23 @@
     <span>@sommaN(5)</span>
 
     <h1>@sommaChar()</h1>
+
+    @foreach(int n in randomNum())
+    {
+        <p class="d-inline">@n</p>
+    }
+
+    <h1>Oggi: @DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")</h1>
+
+    @{
+        DateTime today = DateTime.Today;
+        DateTime sevenDaysAgo = today.AddDays(-7);
+        string dayToday = GetDayOfWeek(today.DayOfWeek);
+        DateTime nextYear = today.AddYears(1);
+        string dayNextYear = GetDayOfWeek(nextYear.DayOfWeek);
+    }
+
+    <h1>Sette Giorni fa: @sevenDaysAgo</h1>
+    <h1>Oggi: @dayToday</h1>
+    <h1>Giorno tra un'anno: @dayNextYear</h1>
 </div>
