@@ -15,10 +15,29 @@
         }
         return somma;
     }
+
+    int sommaChar()
+    {
+        string frase = "nel mezzo del cammin di nostra vita";
+        char[] arr = frase.ToCharArray();
+
+        int somma = 0;
+        foreach (char el in arr)
+        {
+            if (el == 'a')
+            {
+                somma += 1;
+            }
+        }
+        return somma;
+    }
+    
 }
 
 <div class="text-center">
     <h2>@nome @cognome</h2>
 
     <span>@sommaN(5)</span>
+
+    <h1>@sommaChar()</h1>
 </div>
